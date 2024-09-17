@@ -1,6 +1,12 @@
-import { MantineProvider } from "@mantine/core";
-import { theme } from "./mantine/theme";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return <MantineProvider theme={theme}>hi</MantineProvider>;
+export default async function Home() {
+  const session = await getServerSession();
+
+  if (!session) {
+    redirect("/");
+  }
+
+  return <div>{session?.user?.name}</div>;
 }
