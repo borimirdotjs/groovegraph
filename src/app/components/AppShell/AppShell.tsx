@@ -2,16 +2,12 @@
 
 import { AppShell } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useSession } from "next-auth/react";
-import React, { FC } from "react";
-import classes from "../components/Dashboard/Dashboard.module.css";
-import Header from "../components/Dashboard/Header/Header";
+import React, { FC, PropsWithChildren } from "react";
+import classes from "../Dashboard/Dashboard.module.css";
+import Header from "../AppShell/Header/Header";
+import NavBar from "../AppShell/NavBar/NavBar";
 
-const Dashboard: FC = () => {
-  const session = useSession();
-
-  console.log(session);
-
+const MainLayout: FC<PropsWithChildren> = ({ children }) => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -29,12 +25,12 @@ const Dashboard: FC = () => {
       </AppShell.Header>
 
       <AppShell.Navbar className={classes.navbar} p="md">
-        Navbar
+        <NavBar />
       </AppShell.Navbar>
 
-      <AppShell.Main></AppShell.Main>
+      <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
 };
 
-export default Dashboard;
+export default MainLayout;

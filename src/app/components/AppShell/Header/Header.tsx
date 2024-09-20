@@ -4,7 +4,7 @@ import { FC } from "react";
 import classes from "./Header.module.css";
 import { Box, Burger } from "@mantine/core";
 import Logo from "../../common/Logo/Logo";
-import UserInfo from "../UserInfo/UserInfo";
+import UserInfo from "./UserInfo/UserInfo";
 
 type HeaderProps = {
   opened: boolean;

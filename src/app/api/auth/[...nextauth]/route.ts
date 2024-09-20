@@ -1,7 +1,7 @@
 import NextAuth, { AuthOptions } from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     SpotifyProvider({
       clientId: process.env.GG_CLIENT_ID ?? "",

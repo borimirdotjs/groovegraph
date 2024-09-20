@@ -5,9 +5,9 @@ import Landing from "./components/Landing/Landing";
 export default async function Home() {
   const session = await getServerSession();
 
-  if (session) {
-    redirect("/dashboard");
+  if (!session) {
+    return <Landing />;
   }
 
-  return <Landing />;
+  return redirect("/dashboard");
 }

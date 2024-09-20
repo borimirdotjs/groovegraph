@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Menu, Text } from "@mantine/core";
+import { Avatar, Box, Menu, Text } from "@mantine/core";
 import React, { FC } from "react";
 import classes from "./UserInfo.module.css";
 import { signOut, useSession } from "next-auth/react";
@@ -34,9 +34,9 @@ const UserInfo: FC = () => {
         </Menu.Target>
         <Menu.Dropdown>
           <Menu.Item p={0}>
-            <Button size="compact-sm" w="100%" variant="subtle" onClick={openModal}>
+            <Text variant="subtle" onClick={openModal}>
               Sign Out
-            </Button>
+            </Text>
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>
